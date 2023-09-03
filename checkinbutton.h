@@ -2,16 +2,20 @@
 #define CHECKINBUTTON_H
 
 #include <QWidget>
-
-class CheckInButton : public QWidget
+#include <QPushButton>
+#include "checkinmodel.h"
+class CheckInButton : public QPushButton
 {
     Q_OBJECT
 public:
-    explicit CheckInButton(QWidget *parent = nullptr);
+    const QModelIndex& index;
+    CheckInModel* model;
+    explicit CheckInButton(const QModelIndex& index,CheckInModel* model,QWidget *parent = nullptr);
 
 signals:
 
 public slots:
+    void checkIn();
 };
 
 #endif // CHECKINBUTTON_H
