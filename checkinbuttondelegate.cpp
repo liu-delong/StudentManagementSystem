@@ -8,6 +8,7 @@ CheckInButtonDelegate::CheckInButtonDelegate(CheckInModel* _model,QObject *paren
 QWidget *CheckInButtonDelegate::createEditor(QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
     auto button=new CheckInButton(index,model,parent);
+    qDebug("%d %d",index.row(),index.column());
     return button;
 }
 

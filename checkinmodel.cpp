@@ -2,14 +2,7 @@
 
 CheckInModel::CheckInModel(QObject *parent) : QAbstractTableModel(parent)
 {
-    for (int row = 0; row < rowCount(); ++row) {
-        for (int column = 0; column < columnCount(); ++column) {
-            QModelIndex index = this->index(row, column);
-            Qt::ItemFlags flags = this->flags(index);
-            flags |= Qt::ItemIsEditable;
-            this->setFlags(index, flags);
-        }
-    }
+
 }
 
 int CheckInModel::rowCount(const QModelIndex &index) const
@@ -32,5 +25,14 @@ QVariant CheckInModel::data(const QModelIndex &index, int role) const
     {
         return QVariant();
     }
+}
+
+Qt::ItemFlags CheckInModel::flags(const QModelIndex &index) const
+{
+    if(!index.isValid())
+    {
+        return 0;
+    }
+    return Qt::ItemIsEditable|QAbstractItemModel::flags(index);
 }
 

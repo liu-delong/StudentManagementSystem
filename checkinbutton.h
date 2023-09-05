@@ -8,9 +8,9 @@ class CheckInButton : public QPushButton
 {
     Q_OBJECT
 public:
-    const QModelIndex& index;
+    QModelIndex index;
     CheckInModel* model;
-    explicit CheckInButton(const QModelIndex& index,CheckInModel* model,QWidget *parent = nullptr);
+    explicit CheckInButton(QModelIndex _index,CheckInModel* _model,QWidget *parent = nullptr);
 
 signals:
 
